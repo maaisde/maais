@@ -1,4 +1,16 @@
-<!DOCTYPE html><html><head><title>maais registration</title></head><body><iframe src="https://script.google.com/macros/s/AKfycbx-RHoEU1r6JMXhMYLQdxCEs-UVuaB3AiSuGbd1hRT_uhlUUiBU7kt8FncS-DvHbY-HFw/exec" width="100%" height="500px">
-      Your browser does not support iframes.
-    </iframe></body></html>
+<!DOCTYPE html><html><head><title>maais registration</title></head><body><iframe id="appsScriptIframe" width="100%" height="500px">
+  Your browser does not support iframes.
+</iframe><script>
+  // Funktion zum Extrahieren von URL-Parametern
+  function getUrlParameters() {
+    var params = new URLSearchParams(window.location.search);
+    return params.toString(); // Gibt die Parameter als Query-String zurück
+  }
 
+  // Die URL deines Google Apps Scripts, füge die URL-Parameter hinzu
+  var scriptUrl = "https://script.google.com/macros/s/AKfycbx-RHoEU1r6JMXhMYLQdxCEs-UVuaB3AiSuGbd1hRT_uhlUUiBU7kt8FncS-DvHbY-HFw/exec";
+  var fullUrl = scriptUrl + "?" + getUrlParameters();
+
+  // Setze die volle URL mit Parametern als src für den iFrame
+  document.getElementById('appsScriptIframe').src = fullUrl;
+</script></body></html>
